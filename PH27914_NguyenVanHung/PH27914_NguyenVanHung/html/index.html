@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index</title>
+
+
+    <link rel="stylesheet" href="/css/mainscript.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/angular.min.js"></script>
+    <script src="/js/popper.min.js"></script>
+    <script src="/js/angular-route.js"></script>
+    <script src='/js/funtion.js'></script>
+
+</head>
+
+<body ng-app="routing">
+    <div>
+        <div class="main">
+            <div ng-view></div>
+        </div>
+    </div>
+
+<script src="/controller/home.js"></script>
+<script src="/controller/addcategory.js"></script>
+<script src="/controller/addproduct.js"></script>
+<script src="/controller/cart.js"></script>
+<script src="/controller/detailproduct.js"></script>
+<script src="/controller/signin.js"></script>
+
+
+    <script>
+        const rt = angular.module("routing", ["ngRoute", "file-model"])
+        rt.controller("Home",Home)
+        rt.controller("AddCategory",addcategory)
+        rt.controller("AddProduct", AddProduct)
+        rt.controller("Cart", cart)
+        rt.controller("DetailProduct", detailproduct)
+        rt.controller("SignIn", signin)
+
+        rt.config(function ($routeProvider, $locationProvider) {
+            $locationProvider.hashPrefix('');
+            $routeProvider
+                .when("/", {
+                    templateUrl: "/views/home.html",
+                    controller: "Home"
+                })
+                .when("/detailproduct", {
+                    templateUrl: "/views/detailproduct.html",
+                    controller: "DetailProduct"
+                })
+                .when("/event", {
+                    templateUrl: "/views/event.html"
+                })
+                .when("/product", {
+                    templateUrl: "/views/product.html"
+                })
+                .when("/sign", {
+                    templateUrl: "/views/signin.html",
+                    controller: "SignIn"
+                })
+                .when("/storeinfo", {
+                    templateUrl: "/views/intro.html"
+                })
+                .when("/cart", {
+                    templateUrl: "/views/cart.html",
+                    controller: "Cart"
+                })
+                .when("/addproduct", {
+                    templateUrl: "/views/addproduct.html",
+                    controller: "AddProduct"
+                })
+                .when("/addcategory", {
+                    templateUrl: "/views/addcategory.html",
+                    controller: "AddCategory"
+                })
+        })
+    </script>
+</body>
+
+</html>

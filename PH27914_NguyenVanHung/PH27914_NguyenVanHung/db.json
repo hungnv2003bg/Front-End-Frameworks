@@ -1,0 +1,63 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "phone"
+    },
+    {
+      "id": 2,
+      "name": "laptop"
+    },
+    {
+      "id": 3,
+      "name": "pc"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "name": "Ip 11",
+      "price": "100",
+      "category": "1",
+      "img": "/img/ip11.png"
+    },
+    {
+      "id": 2,
+      "name": "Ip 12",
+      "price": "200",
+      "category": "2",
+      "img": "/img/ip12.png"
+    },
+    {
+      "id": 3,
+      "name": "Ip 14",
+      "price": "400",
+      "category": "3",
+      "img": "/img/ip14.png"
+    }
+  ],
+  "carts": [
+    {
+      "id": 0,
+      "idsp": 0,
+      "quantity": 1
+    },
+    {
+      "id": 1,
+      "idsp": 1,
+      "quantity": 2
+    },
+    {
+      "id": 2,
+      "idsp": 2,
+      "quantity": 3
+    }
+  ],
+  "accounts": [
+    {
+      "id": 1,
+      "username": "abc",
+      "password": "123"
+    }
+  ]
+}

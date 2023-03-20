@@ -1,0 +1,132 @@
+<div>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid row" style="justify-content: space-between">
+        <h1 class="col-2" href="#">Innisfree</h1>
+        <form class="col-3" role="search">
+          <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+  
+        <div class="col-4"></div>
+        <div class="collapse navbar-collapse col-3 navbar-end" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 row">
+            <li class="nav-item col-4" ng-switch="user">
+              <a href="#sign" class="header-link" ngSwitchCase="undefine" ng-hide="user">Đăng nhập</a>
+            </li>
+            <li class="nav-item col">
+              <a class="header-link" href="#home">Trang của tôi</a>
+            </li>
+          </ul>
+        </div>
+        <button class="navbar-toggler col-1" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="row mt-3 ">
+      <div class="col-2"><a href="#"  class="header-link">Trang chủ</a></div>
+      <div class="col-2"><a href="#product" class="header-link">Sản phẩm</a></div>
+      <div class="col-2"><a href="#storeinfo" class="header-link">Giới thiệu cửa hàng</a></div>
+      <div class="col-2"><a href="#event" class="header-link">Sự kiện</a></div>
+    </div>
+    <!-- content -->
+    <div class="row mt-5">
+      <div class="row text-center">
+        <h1>Giỏ Hàng</h1>
+      </div>
+      <div class="row" ng-repeat="item in carts"
+        style="border: 1px solid gray;  justify-content: space-between;">
+        <div class="col-3">
+          <div class="row" style="width: 100%;">
+            <div class="col ms-3" style="padding: 8% 0;max-width: fit-content;">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+              </div>
+            </div>
+            <div class="col" style="width: fit-content;">
+              <img ng-src={{listProducts[item.idsp].img}} alt="" style="width: 100%;height: 80px;">
+            </div>
+            <div class="col" style="width: fit-content;">
+              <div class="row" style="width: fit-content;">
+                {{listProducts[item.idsp].name}}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <select ng-model="category.name" style="margin-top: 10px;" class="form-select"  required>
+            <option ng-repeat="cat in categories" value="{{ cat.id }}">
+              {{ cat.name }}
+            </option>
+          </select>
+        </div>
+        <div class="col-2">
+  
+          <p  style="margin-top: 10px;">{{listProducts[item.idsp].price}}</p>
+        </div>
+        <div class="col-2">
+          <input type="number" style="max-width: 100%;margin-top: 20%;" ng-model="item.quantity" />
+        </div>
+        <div class="col-2">
+          <p  style="margin-top: 20%;">thành tiền</p>
+          <p >{{(listProducts[item.idsp].price) * (item.quantity)}}</p>
+        </div>
+        <div class="col-1">
+          <button style="width: 100%;margin-top: 20px;"
+            ng-click="handleDelete($event,item.id)">xóa</button>
+        </div>
+      </div>
+    </div>
+    <!-- footer -->
+    <div class=" footer">
+        <div class="the-real-footer">
+          <div class="row footer-first-row">
+            <div class="col-8" style="text-align: start">
+              <div class="row">
+                <h1 style="color: white">innisfree</h1>
+              </div>
+              
+            </div>
+            <div class="col-3" style="text-align: right;padding-left: 150px; padding-top: 20px;">
+              <div class="row">
+                <div class="col-10">
+                  <div class="row footer-button-text">2020 innisfree Inc.</div>
+                  <div class="row footer-button-text">All rights reserved.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="row">
+              <div class="col-2" style="width: fit-content"><a class="footer-button-text">Chính sách giao
+                  hàng
+                  và thanh toán</a></div>
+              <div class="col-2" style="width: fit-content"><a class="footer-button-text">Chính sách bảo
+                  mật
+                  thông tin khách hàng</a></div>
+              <div class="col-2" style="width: fit-content"><a class="footer-button-text">Chính sách mua
+                  hàng</a></div>
+              <div class="col-2" style="width: fit-content"><a class="footer-button-text">Chính sách trả
+                  hàng</a></div>
+            </div>
+            <div class="row">
+              <p class="footer-button-text">thời gian làm việc: Thứ 2 đến thứ 7 hàng tuần</p>
+              <p class="footer-button-text">Tư vấn và chăm sóc khách hàng: 129310923890182390 (Ext 125)
+              </p>
+              <p class="footer-button-text">Email: cs_vn@tinhte.innisfree.com</p>
+            </div>
+            <div class="row">
+              <p class="footer-button-text">Công ty TNHH 1 QDC</p>
+              <p class="footer-button-text">Cơ quan cấp: Phòng đăng kí kinh doanh Hà Nội
+              </p>
+              <p class="footer-button-text">Địa chỉ đăng kí kinh doanh: 123 Cầu giấy, Hà Nội</p>
+            </div>
+          </div>
+          <div class="row">
+    
+          </div>
+        </div>
+      </div>
+  </div>
